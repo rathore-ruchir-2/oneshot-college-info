@@ -1,0 +1,1 @@
+export const baseUrl = 'https://oneshotai-backend.herokuapp.com'
