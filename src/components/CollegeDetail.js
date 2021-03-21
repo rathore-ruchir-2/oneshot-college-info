@@ -4,6 +4,8 @@ import Paper from '@material-ui/core/Paper';
 import axios from 'axios';
 import {baseUrl} from '../config'
 import CollegeCard from './CollegeCards'
+import Button from '@material-ui/core/Button';
+
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -21,6 +23,7 @@ export default function CollegeDetail(props) {
   const classes = useStyles();
   const [college, setCollege] = useState(null)
   const [similarColleges, setSimilarColleges] = useState(null)
+  const [students, setStudents] = useState(null)
   const data=null
   useEffect(() => {
       console.log(props)
@@ -29,12 +32,21 @@ export default function CollegeDetail(props) {
           console.log(res)
           setCollege(res.data[0])
       })
+      .catch((err) => console.log('not found'))
 
       axios.get(`${baseUrl}/colleges/${props.match.params.collegeId}/similarColleges`)
       .then((res) => {
             console.log(res.data)
             setSimilarColleges(res.data)
       })
+      .catch((err) => console.log('not found'))
+
+      axios.get(`${baseUrl}/students/${props.match.params.collegeId}`)
+      .then((res) => {
+          console.log(res)
+          setStudents(res.data)
+      })
+      .catch((err) => console.log('not found'))
   }, [])
   return (
     <div className={classes.root}>
@@ -52,6 +64,10 @@ export default function CollegeDetail(props) {
             </div>
       </Paper>
       </div>
+      
+      <Button variant="contained" color="default" href={`/colleges/${props.match.params.collegeId}/students`} style={{marginTop: '100px', height: '40px', width: '150px', position: 'relative'}}>
+        View Students
+      </Button>
       <div style={{fontSize: '30px', marginTop: '200px', width: "60%"}}>Colleges Similar to {college && college.name}</div>
        <div style={{display: 'flex', flexDirection: 'row', flexWrap: 'wrap', width: '100%'}}>
            {
@@ -62,6 +78,8 @@ export default function CollegeDetail(props) {
                })
            }
         </div> 
+       
+        
     </div>
   );
 }
