@@ -17,9 +17,7 @@ const useStyles = makeStyles({
     },
   });
   
-  function createData(name, calories, fat, carbs, protein) {
-    return { name, calories, fat, carbs, protein };
-  }
+  
 
 const columns = [
     {
@@ -68,16 +66,19 @@ function Home(props)
                         name: item.name,
                         city: item.city,
                         state: item.state,
-                        country: item.country
+                        country: item.country,
+                        id: item._id
                     }
                 );
                 count++;
             })
-
+            
             setData(array)
+            
         })
-    })
+    }, [])
     const rows = data;
+    console.log(rows)
     const classes = useStyles();
 
     return (
@@ -98,8 +99,8 @@ function Home(props)
                         <TableBody>
                         {rows && rows.map((row) => (
                             <TableRow key={row.name}>
-                            <TableCell component="th" scope="row">
-                                {row.name}
+                            <TableCell component="th" scope="row" >
+                                 <a href={`/colleges/${row.id}`} style={{textDecoration: "none", color: "black"}}>{row.name}</a>
                             </TableCell>
                             <TableCell align="right">{row.city}</TableCell>
                             <TableCell align="right">{row.state}</TableCell>
