@@ -44,7 +44,9 @@ export default function StudentDetail(props) {
                 <div style={{marginLeft: '10px', fontSize: '20px'}}>College Id: <span style={{fontFamily: 'cursive'}}>{props.match.params.collegeId}, </span></div>
             </div>
             <div style={{display: 'flex', flexDirection: "row", flexWrap: 'wrap', justifyContent: 'space-evenly' }}>
-                <div style={{marginLeft: '10px', fontSize: '20px'}}>Skills: <span style={{fontFamily: 'cursive'}}>{}</span></div>
+                <div style={{marginLeft: '10px', fontSize: '20px'}}>Skills: <span style={{fontFamily: 'cursive'}}>{student && student.skills.map((item) => {
+                    return (<span>{item.skill_name},</span>);
+                })}</span></div>
             </div>
       </Paper>
       </div>
