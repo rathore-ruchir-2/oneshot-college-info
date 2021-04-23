@@ -1,0 +1,26 @@
+
+
+.buttonClass {
+    font-size: 15px;
+    text-decoration: none;    
+    outline: none;
+    background-color: #fff;
+    /* border: 2px 2px 2px 2px solid #ffffff; */
+    border: none;
+    cursor: pointer;
+}
+
+.activeItem {
+    font-weight: bold; 
+    border-bottom: 2px solid #00d09c; 
+    border-left: 2px solid #ffffff; 
+    border-right: 2px solid #ffffff;
+    
+}
+.myclass{
+    font-size: x-large;
+}
+
+#parentClass{
+    background-color: aqua;
+}

@@ -3,16 +3,10 @@ import React, {Component, useState, useEffect} from 'react'
 import axios from 'axios';
 import {baseUrl} from '../config'
 import { makeStyles } from '@material-ui/core/styles';
-// import Table from '@material-ui/core/Table';
-import TableBody from '@material-ui/core/TableBody';
-import TableCell from '@material-ui/core/TableCell';
-import TableContainer from '@material-ui/core/TableContainer';
-import TableHead from '@material-ui/core/TableHead';
-import TableRow from '@material-ui/core/TableRow';
 import Paper from '@material-ui/core/Paper';
+import Grid from '@material-ui/core/Grid';
 import { Table, Tag, Space } from 'antd';
 import 'antd/dist/antd.css'
-
 
 const { Column, ColumnGroup } = Table;
 
@@ -20,52 +14,22 @@ const useStyles = makeStyles({
     table: {
       minWidth: 650,
     },
+    chartPaper: {
+        marginTop: '100px',
+        width: '100%',
+        minHeight: '400px'
+    },
   });
-  
-  
 
-const columns = [
-    {
-        title: 'S. No.',
-        dataIndex: 'sno',
-        key: 'sno',
-    },
 
-    {
-        title: 'College',
-        dataIndex: 'college',
-        key: 'college'
-    },
-
-    {
-        title: 'City',
-        dataIndex: 'city',
-        key: 'city'
-    },
-
-    {
-        title: 'State',
-        dataIndex: 'state',
-        key: 'state'
-    },
-
-    {
-        title: 'Country',
-        dataIndex: 'country',
-        key: 'country'
-    }
-
-]
-function Home(props)
-{
+  function CollegeListOfState(props){
     const [data, setData] = useState(null)
-
+    console.log(props);
     useEffect(() => {
-        axios.get(`${baseUrl}/colleges`)
+        axios.get(`${baseUrl}/colleges/state/${props.match.params.state}`)
         .then(res => {
             var count=1;
             const array = res.data.map((item) => {
-                console.log(item)
                 return (
                     {
                         
@@ -89,14 +53,15 @@ function Home(props)
     const classes = useStyles();
 
     return (
-        <div style={{width: '100%'}}>
-                <h1>Colleges List</h1>
-                {/* <Table style={{marginLeft: '100px'}} columns={columns} dataSource={data} /> */}
+        <div>
+            <Grid container>
+                <Grid item xs={12} sm={12} lg={9} >
+                <Paper className={classes.chartPaper}>
                 <Table dataSource={rows}>
 
-                    <Column title="College Name" dataIndex="name" key="name" />
+                    <Column title="College Name" dataIndex="name" key="name" render= {text => <a href={`/colleges/name/${text}`}>{text}</a> } />
                     <Column title="City" dataIndex="city" key="city" />
-                    <Column title="State" dataIndex="state" key="state" />
+                    <Column title="State" dataIndex="state" key="state" render= {text => <a href={`/colleges/state/${text}`}>{text}</a> }/>
                     <Column
                     title="Courses"
                     dataIndex="courses"
@@ -104,16 +69,19 @@ function Home(props)
                     render={ courses => (
                         <>
                         {courses.map(item => (
-                            <Tag color="blue" key={item.id}>
+                            <a href={`/colleges/courses/${item.course_name}`}><Tag color="blue" key={item.id}>
                             {item.course_name}
-                            </Tag>
+                            </Tag></a>
                         ))}
                         </>
                     )}
                     />
-            </Table>
+                </Table>
+                </Paper>
+                </Grid>
+            </Grid>
         </div>
     );
-}
+  }
 
-export default Home;
+export default CollegeListOfState;
