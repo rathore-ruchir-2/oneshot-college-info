@@ -438,11 +438,9 @@ function Dashboard (props){
                 <nav className={classes.navBar}>
                     <ul className={classes.ulist}>
                         <li className={classes.list} style={{fontSize: '18px', fontWeight: 'bolder'}}>Dashboard</li>
-                        <li className={classes.list}><Button><AddCircleOutlineIcon /><span>Create Course</span></Button></li>
-                        <li className={classes.list}><Button><VisibilityIcon /><span>Preview Home Page</span></Button></li>
-                        <li className={classes.list}><Button><VisibilityIcon /><span>Preview After Login</span></Button></li>
-                        <li className={classes.list}><Button><PowerSettingsNewIcon /><span>View Welcome Screen</span></Button></li>
-                        <li className={classes.list}><Button variant='contained' style={{ backgroundColor: themeColor}} onClick={handleClickOpen}>Invite</Button></li>
+                        <li className={classes.list}><Button><AddCircleOutlineIcon /><span>Colleges List</span></Button></li>
+                        <li className={classes.list}><Button><VisibilityIcon /><span>Students list</span></Button></li>
+                        
 
                     </ul>
                     <div className={classes.help}>
@@ -456,7 +454,7 @@ function Dashboard (props){
                         <div className={classes.flexRow2}>
                             <div><Button><DateRangeIcon style={{color: themeColor}}/>Top Ranked Colleges</Button></div>
                             <div>
-                                <ul className={classes.ufeaturedlist} id='ufeaturedList'>
+                                {/* <ul className={classes.ufeaturedlist} id='ufeaturedList'>
                                     <li className={classes.featuredlist}><button className='listButton newSignups buttonClass ' onClick={() => onClickItem('newSignups')}>New Signups</button></li>
                                     <li className={classes.featuredlist}><button className='listButton revenue buttonClass' onClick={(id) => onClickItem('revenue')}>Revenue</button></li>
                                     <li className={classes.featuredlist}><button className='listButton productSales buttonClass' onClick={(id) => onClickItem('productSales')}>Product Sales</button></li>
@@ -477,7 +475,7 @@ function Dashboard (props){
                                             </NativeSelect>
                                         </FormControl>
                                     </li>
-                                </ul>
+                                </ul> */}
                             </div>
                         </div>
                         <div className={classes.chart}>
@@ -553,16 +551,16 @@ function Dashboard (props){
                     <div><Button><DateRangeIcon style={{color: themeColor}}/>No. of Colleges in States(%)</Button></div>
                     <Pie {...config}  onEvent={(chart, event) => myFunc(chart, event)}/>
                     </Paper>
-                    <Paper className={classes.statesChart}>
+                    {/* <Paper className={classes.statesChart}>
                     <div><Button><DateRangeIcon style={{color: themeColor}}/>Courses offered(%)</Button></div>
                     <Pie {...config2}  onEvent={(chart, event) => myFunc2(chart, event)}/>
-                    </Paper>
+                    </Paper> */}
                 </Grid>
 
             </Grid>
             <Grid container spacing={2}>
                 <Grid item xs={12} sm={6} lg={3}>
-                    <Paper className={classes.newUsers}>
+                    {/* <Paper className={classes.newUsers}>
                         <div style={{justifyContent: 'start', marginTop: '10px',marginLeft: '10px', display: 'flex'}}>
                             <PersonOutlineIcon style={{color: themeColor}} />
                             <span style={{ justifyContent: 'center'}}>New Users</span>
@@ -575,10 +573,10 @@ function Dashboard (props){
                                 <div> 24 min</div>
                             </div>
                         </div>
-                    </Paper>
+                    </Paper> */}
                 </Grid>
                 <Grid item xs={12} sm={6} lg={3}>
-                    <Paper className={classes.blogs}>
+                    {/* <Paper className={classes.blogs}>
                         <div style={{justifyContent: 'start', marginTop: '10px',marginLeft: '10px', display: 'flex'}}>
                             <ListAltIcon  />
                             <span style={{ justifyContent: 'center'}}>How to sell courses blogs</span>
@@ -598,10 +596,10 @@ function Dashboard (props){
                                 <div>7 days ago</div>
                             </li>
                         </ul>
-                    </Paper>
+                    </Paper> */}
                 </Grid>
                 <Grid item xs={12} sm={6} lg={3}>
-                    <Paper className={classes.events}>
+                    {/* <Paper className={classes.events}>
                         <div style={{justifyContent: 'start', marginTop: '10px',marginLeft: '10px', display: 'flex'}}>
                             <TimelineIcon  />
                             <span style={{ justifyContent: 'center'}}>Events Logs</span>
@@ -621,10 +619,10 @@ function Dashboard (props){
                             </li>
                            
                         </ul>
-                    </Paper>
+                    </Paper> */}
                 </Grid>
                 <Grid item xs={12} sm={6} lg={3}>
-                    <Paper className={classes.trialPeriod}>
+                    {/* <Paper className={classes.trialPeriod}>
                         <div style={{display: 'flex', flexDirection: 'row', justifyContent: 'space-between'}}>
                             <div style={{fontSize: '20px', fontWeight: 'bold', marginLeft: '10px', marginTop: '10px'}}>Trial Period</div>
                             <div style={{marginRight: '20px', marginTop: '10px'}}><HourglassEmptyIcon style={{color: themeColor, fontSize: '40px'}}/></div>
@@ -637,30 +635,11 @@ function Dashboard (props){
                         <div style={{display: 'flex', flexDirection: 'row', justifyContent: 'flex-end', marginBottom: '20px', marginRight: '20px'}}>
                             <Chip label="Upgrade Now! >>" component="a" href="#" size='small' clickable style={{ backgroundColor: '#ED0394', color: '#ffffff', marginLeft: '10px'}}/>
                         </div>
-                    </Paper>
-                    <Paper className={classes.newUsers}>
-                        <div style={{justifyContent: 'start', marginTop: '10px',marginLeft: '10px', display: 'flex'}}>
-                            <PersonOutlineIcon style={{color: themeColor}} />
-                            <span style={{ justifyContent: 'center'}}>Online Users (1)</span>
-                        </div>
-                        <div style={{ marginTop: '10px',marginLeft: '10px', display: 'flex', flexDirection: 'row', justifyContent: 'space-between',}}>
-                            <div style={{display: 'flex', flexDirection: 'row', justifyContent: 'flex-start', alignItems: 'center'}}>
-                                <div>
-                                    <SentimentSatisfiedSharpIcon style={{fontSize:"40px"}}/>
-                                </div>
-                                {/* <div style={{ top: '10px', height: '10px', width: '10px', borderRadius: '50%', backgroundColor: 'green', zIndex: 5}}></div> */}
-                                <div>
-                                    HubX
-                                </div>
-                            </div>
-                            <div>
-                               <Button variant='contained' style={{fontSize: '10px', backgroundColor: themeColor, color: '#ffffff', marginRight: '20px'}} >Contact</Button>
-                            </div>
-                        </div>
-                    </Paper>
+                    </Paper> */}
+                    
                 </Grid>
             </Grid>
-            <Button variant='contained' style={{marginTop: '20px', backgroundColor: themeColor}} onClick={handleClickOpen}>Invite</Button>
+            {/* <Button variant='contained' style={{marginTop: '20px', backgroundColor: themeColor}} onClick={handleClickOpen}>Invite</Button> */}
             <Dialog open={open} onClose={handleClose} aria-labelledby="form-dialog-title">
                 <DialogTitle id="form-dialog-title">No. of People: {people}</DialogTitle>
                 <DialogContent>

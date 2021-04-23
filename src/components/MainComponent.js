@@ -30,7 +30,7 @@ class Main extends Component{
                         <Route exact path='/colleges/state/:state' component={(props) => <CollegeListOfState {...props}/> } />
                         <Route exact path='/colleges/name/:collegeName' component={(props) => <CollegeDetail {...props}/> } />
                         <Route exact path='/colleges/:collegeId/similarColleges' component={(props) => <SimilarCollege {...props}/> } />
-                        <Redirect to='/home' />
+                        <Redirect to='/dashboard' />
                     </Switch>
             </Router>
         );
