@@ -115,7 +115,7 @@ export default function PersistentDrawerLeft() {
               <MenuIcon />
             </IconButton>
             <Typography variant="h6" noWrap>
-              College Dekho
+              College Camp
             </Typography>
           </Toolbar>
         </AppBar>
@@ -151,7 +151,7 @@ export default function PersistentDrawerLeft() {
             </ListItem>
 
             <ListItem button>
-                <a href="#" style={{textDecoration: 'none', color: 'black'}}>
+                <a href="/dashboard" style={{textDecoration: 'none', color: 'black'}}>
                     <ListItemIcon><MenuBookIcon /></ListItemIcon>
                     <ListItemText primary={'Colleges Statewise'} />
                 </a>    

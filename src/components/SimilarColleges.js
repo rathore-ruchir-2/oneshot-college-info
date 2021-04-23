@@ -99,11 +99,33 @@ export default function SimilarCollege(props) {
                         key="courses"
                         render={ courses => (
                             <>
-                            {courses.map(item => (
-                                <a href={`/colleges/courses/${item.course_name}`}><Tag color="blue" key={item.id}>
-                                {item.course_name}
-                                </Tag></a>
-                            ))}
+                            {courses.map(item => {
+                                        if(item.course_name == 'ECE' || item.course_name == 'Civil'){
+                                            return (
+                                                <a href={`/colleges/courses/${item.course_name}`}><Tag color="volcano" key={item.id}>
+                                                {item.course_name}
+                                                </Tag></a>
+                                            );
+                                        }
+
+                                        if(item.course_name == 'CSE'){
+                                            return (
+                                                <a href={`/colleges/courses/${item.course_name}`}><Tag color="blue" key={item.id}>
+                                                {item.course_name}
+                                                </Tag></a>
+                                            );
+                                        }
+
+                                        else{
+                                            return (
+                                                <a href={`/colleges/courses/${item.course_name}`}><Tag color="green" key={item.id}>
+                                                {item.course_name}
+                                                </Tag></a>
+                                            );
+                                        }
+                                    }
+                                
+                            )}
                       </>
                   )}
                   />
