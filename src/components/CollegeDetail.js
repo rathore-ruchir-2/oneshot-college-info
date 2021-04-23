@@ -10,7 +10,12 @@ import Chip from '@material-ui/core/Chip';
 import Grid from '@material-ui/core/Grid';
 import { Table, Tag, Space } from 'antd';
 import 'antd/dist/antd.css'
-
+import Card from '@material-ui/core/Card';
+import CardActionArea from '@material-ui/core/CardActionArea';
+import CardActions from '@material-ui/core/CardActions';
+import CardContent from '@material-ui/core/CardContent';
+import CardMedia from '@material-ui/core/CardMedia';
+import graduate from './graduate.jpeg'
 
 const themeColor = '#03CBBB'
 const { Column, ColumnGroup } = Table;
@@ -28,7 +33,15 @@ const useStyles = makeStyles((theme) => ({
   trialPeriod: {
     marginTop: '100px',
     display: 'flex',
-    flexDirection: 'column'  
+    flexDirection: 'column',
+    marginLeft: '50px'  
+  },
+
+  imgClass: {
+    marginTop: '100px',
+    maxHeight: '350px',
+    height: '100%',
+    width: '100%'  
   },
 
   circle: {
@@ -48,7 +61,15 @@ const useStyles = makeStyles((theme) => ({
 chartPaper: {
   marginTop: '100px',
   width: '100%',
-  minHeight: '400px'
+  minHeight: '400px',
+ 
+},
+
+cardRoot: {
+  maxWidth: 345,
+},
+media: {
+  height: 140,
 },
 
 }));
@@ -105,6 +126,9 @@ export default function CollegeDetail(props) {
     <div className={classes.root}>
         <div style={{width: '100%'}}>
         <Grid container>
+        <Grid item xs={12} sm={6} lg={5}>
+        <img className={classes.imgClass} src={graduate}></img>
+        </Grid>
         <Grid item xs={12} sm={6} lg={5}>
         <Paper className={classes.trialPeriod}>
                 <div style={{display: 'flex', flexDirection: 'row', justifyContent: 'space-between'}}>
