@@ -121,6 +121,7 @@ export default function CollegeDetail(props) {
                     
                 </div>
                 <div style={{display: 'flex', flexDirection: 'row', justifyContent: 'flex-end', marginBottom: '20px', marginRight: '20px'}}>
+                <Button variant='contained' style={{marginTop: '20px', backgroundColor: themeColor}} onClick={() => props.history.push(`/colleges/${college && college._id}/students`)}>Students Enrolled</Button>
                     <Chip label="Apply Now! >>" component="a" href="#" size='small' clickable style={{ backgroundColor: '#ED0394', color: '#ffffff', marginLeft: '10px'}}/>
                 </div>
         </Paper>
@@ -132,41 +133,7 @@ export default function CollegeDetail(props) {
       {/* <Button variant="contained" color="default" href={`/colleges/${props.match.params.collegeId}/students`} style={{marginTop: '100px', height: '40px', width: '150px', position: 'relative'}}>
         View Students
       </Button> */}
-      <div style={{fontSize: '30px', marginTop: '100px', width: "60%"}}>Colleges Similar to {college && college.name}</div>
-      <Grid container>
-              <Grid item xs={12} sm={12} lg={9} >
-              <Paper className={classes.chartPaper}>
-              <Table dataSource={similarColleges}>
-                      <Column title="College Name" dataIndex="name" key="name" render= {text => <a href={`/colleges/name/${text}`}>{text}</a> } />
-                      <Column title="City" dataIndex="city" key="city" />
-                      <Column title="State" dataIndex="state" key="state" render= {text => <a href={`/colleges/state/${text}`}>{text}</a> }/>
-                      <Column
-                      title="Courses"
-                      dataIndex="courses"
-                      key="courses"
-                      render={ courses => (
-                          <>
-                          {courses.map(item => (
-                              <a href={`/colleges/courses/${item.course_name}`}><Tag color="blue" key={item.id}>
-                              {item.course_name}
-                              </Tag></a>
-                          ))}
-                    </>
-                )}
-                />
-            </Table>
-              </Paper>
-              </Grid>
-      </Grid>
-       <div style={{display: 'flex', flexDirection: 'row', flexWrap: 'wrap', width: '100%'}}>
-           {
-               similarColleges && similarColleges.map((item) => {
-                   return (
-                       <CollegeCard college={item} />
-                   );
-               })
-           }
-        </div> 
+      
        </div>
         
     </div>
