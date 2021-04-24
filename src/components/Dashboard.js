@@ -48,6 +48,8 @@ import {Chart as PieChart}   from "react-google-charts";
 import { Table, Tag, Space } from 'antd';
 import { Pie } from '@ant-design/charts';
 import 'antd/dist/antd.css'
+import ReactSearchBox from 'react-search-box'
+
 
   const { Column, ColumnGroup } = Table;
 
@@ -432,6 +434,10 @@ function Dashboard (props){
     return `${value} min`;
   }
 
+
+  const searchData = data && data.map((item) => {
+      return { key: item.name, value: item.name}
+  })
  
     
     return (
@@ -441,12 +447,25 @@ function Dashboard (props){
                     <ul className={classes.ulist}>
                         <li className={classes.list} style={{fontSize: '18px', fontWeight: 'bolder'}}>Dashboard</li>
                         <li className={classes.list} onClick={() => props.history.push('/home')}><Button><AddCircleOutlineIcon /><span>Colleges List</span></Button></li>
-                        <li className={classes.list}><Button><VisibilityIcon /><span>Students list</span></Button></li>
-                        
+                        <li className={classes.list} onClick={() => props.history.push('/colleges/all-states')}><Button><VisibilityIcon /><span>Colleges By States</span></Button></li>
+                        <li className={classes.list} onClick={() => props.history.push('/colleges/all-courses')}><Button><VisibilityIcon /><span>Colleges By Courses</span></Button></li>
+                        {/* <li className={classes.list} >
+                        <ReactSearchBox
+                                        placeholder="Search For..."
+                                        value=""
+                                        data={searchData}
+                                        callback={record => console.log(record)}
+                                        onSelect={(value) => { console.log(value); }}
+
+                                        />
+                                        <div style={{height: '40px'}}>
+                                        <button style={{color: 'white', backgroundColor: '#339FFF', border: 0, height: '40px'}} onClick={(query) => {console.log(query.key);  props.history.push(`/colleges/name/${query.key}`);}} ><i className='fa fa-search' /></button>
+                                        </div>
+                        </li> */}
 
                     </ul>
                     <div className={classes.help}>
-                        <Button><HelpIcon style={{color: themeColor, fontSize: '35px'}}/>Help</Button>
+                        <Button  onClick={handleClickOpen}><HelpIcon style={{color: themeColor, fontSize: '35px'}}/>Help</Button>
                     </div>
                 </nav>
             </Paper>
@@ -667,64 +686,29 @@ function Dashboard (props){
             </Grid>
             {/* <Button variant='contained' style={{marginTop: '20px', backgroundColor: themeColor}} onClick={handleClickOpen}>Invite</Button> */}
             <Dialog open={open} onClose={handleClose} aria-labelledby="form-dialog-title">
-                <DialogTitle id="form-dialog-title">No. of People: {people}</DialogTitle>
+                <DialogTitle id="form-dialog-title">How can we help you?</DialogTitle>
                 <DialogContent>
                 <DialogContentText>
-                    You can add the email of the person to invite amd then click add to event
+                    You can enter your query here.
                 </DialogContentText>
                 <TextField
                     autoFocus
                     margin="dense"
                     id="email"
-                    label="Email Address"
-                    type="email"
+                    label="Query"
+                    type="text"
                     value={email}
                     onChange={(e) => setEmail(e.target.value)}
                 />
                 <br />
-                <Typography id="discrete-slider-always" gutterBottom>
-                    Duration of Event (min)
-                </Typography>
-                <Slider
-                    defaultValue={30}
-                    getAriaValueText={valuetext}
-                    aria-labelledby="discrete-slider-always"
-                    step={10}
-                    value={duration}
-                    onChange={(event,value) => setDuration(value)}
-                    valueLabelDisplay="on"
-                    />
-                <PieChart
-                    width={'500px'}
-                    height={'300px'}
-                    chartType="PieChart"
-                    loader={<div>Loading Chart</div>}
-                    data={[
-                        ['Task', 'Hours per Day'],
-                        ['No. of People', people*10],
-                        ['Duration of Event', duration*5],
-                        ['Price', price],
-                        
-                    ]}
-                    options={{
-                        title: 'The Price Calculator',
-                        // Just add this option
-                        slices: {
-                            0: { color: '#44475b' },
-                            1: { color: '#5367ff' },
-                            2: {color: '#00d09c'}
-                          },
-                        pieHole: 0.4,
-                    }}
-                   
-                    />
+                
                 </DialogContent>
                 <DialogActions>
                 <Button onClick={handleClose} color="primary">
                     Cancel
                 </Button>
                 <Button onClick={addPeople} color="primary" disabled={email=="" ? true : false} >
-                    Add to event
+                    Submit
                 </Button>
                 </DialogActions>
             </Dialog>

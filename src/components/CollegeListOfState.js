@@ -57,6 +57,8 @@ const useStyles = makeStyles({
             <Grid container>
                 <Grid item xs={12} sm={12} lg={9} >
                 <Paper className={classes.chartPaper}>
+                    <h1>Colleges in {props.match.params.state}</h1>
+
                 <Table dataSource={rows}>
 
                     <Column title="College Name" dataIndex="name" key="name" render= {text => <a href={`/colleges/name/${text}`}>{text}</a> } />

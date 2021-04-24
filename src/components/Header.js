@@ -82,11 +82,11 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 
-export default function PersistentDrawerLeft() {
+export default function PersistentDrawerLeft(props) {
     const classes = useStyles();
     const theme = useTheme();
     const [open, setOpen] = React.useState(false);
-  
+    console.log(props);
     const handleDrawerOpen = () => {
       setOpen(true);
     };
@@ -114,8 +114,9 @@ export default function PersistentDrawerLeft() {
             >
               <MenuIcon />
             </IconButton>
-            <Typography variant="h6" noWrap>
-              College Camp
+            <Typography variant="h6" noWrap style={{color: "#ffffff", cursor: 'pointer'}} onClick={console.log(props)} >
+              <span style={{fontSize: '30px', margin: '0px', padding: '0px'}}>C</span>ollege 
+              <span style={{fontSize: '30px', margin: '0px', padding: '0px'}}> C</span>amp
             </Typography>
           </Toolbar>
         </AppBar>
