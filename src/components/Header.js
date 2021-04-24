@@ -81,6 +81,8 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
+const themeColor = '#03CBBB'
+
 
 export default function PersistentDrawerLeft(props) {
     const classes = useStyles();
@@ -139,27 +141,27 @@ export default function PersistentDrawerLeft(props) {
             
             <ListItem button>
                 <a href='/home' style={{textDecoration: 'none', color: 'black'}}>
-                    <ListItemIcon><MenuBookIcon /></ListItemIcon>
+                    <ListItemIcon><MenuBookIcon style={{color: themeColor}}/></ListItemIcon>
                     <ListItemText primary={'All Colleges'} />
                 </a>    
             </ListItem>
 
             <ListItem button>
                 <a href="/home" style={{textDecoration: 'none', color: 'black'}}>
-                    <ListItemIcon><HomeIcon /></ListItemIcon>
+                    <ListItemIcon><HomeIcon style={{color: themeColor}}/></ListItemIcon>
                     <ListItemText primary={'Home'} />
                 </a>    
             </ListItem>
 
             <ListItem button>
                 <a href="/colleges/all-states" style={{textDecoration: 'none', color: 'black'}}>
-                    <ListItemIcon><MenuBookIcon /></ListItemIcon>
+                    <ListItemIcon><MenuBookIcon style={{color: themeColor}}/></ListItemIcon>
                     <ListItemText primary={'Colleges Statewise'} />
                 </a>    
             </ListItem>
             <ListItem button>
                 <a href="/colleges/all-courses" style={{textDecoration: 'none', color: 'black'}}>
-                    <ListItemIcon><MenuBookIcon /></ListItemIcon>
+                    <ListItemIcon><MenuBookIcon style={{color: themeColor}}/></ListItemIcon>
                     <ListItemText primary={'Colleges Sort by Course'} />
                 </a>    
             </ListItem>

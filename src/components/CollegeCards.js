@@ -42,7 +42,7 @@ export default function CollegeCard(props) {
          
         </CardContent>
         <CardActions>
-             <a href={`/colleges/${college._id}`} style={{textDecoration: 'none', color: 'black'}}><Button size="small">Visit</Button></a>
+             <a href={`/colleges/name/${college.name}`} style={{textDecoration: 'none', color: 'black'}}><Button size="small">Visit</Button></a>
         </CardActions>
       </Card>
     );

@@ -149,7 +149,7 @@ export default function CollegeDetail(props) {
                     <Chip label="Apply Now! >>" component="a" href="#" size='small' clickable style={{ backgroundColor: '#ED0394', color: '#ffffff', marginLeft: '10px'}}/>
                 </div>
         </Paper>
-        <a style={{marginTop: "20px", fontSize:"15px"}} href={`/colleges/${college && college._id}/similarColleges`}>Get Similar Colleges</a>
+        <a style={{marginTop: "30px", fontSize:"17px"}} href={`/colleges/${college && college._id}/similarColleges`}>Get Similar Colleges</a>
         </Grid>
         </Grid>
       
