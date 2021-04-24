@@ -357,9 +357,8 @@ function Dashboard (props){
     
         if(event.type=="interval:click"){
           console.log(event.data.data.type)
-          axios.get(baseUrl+'/colleges/courses/'+`${event.data.data.type}`)
-          .then((res) => console.log(res))
-          .catch((err) => console.log(err))
+          props.history.push(`/colleges/courses/${event.data.data.type}`)
+
         }
       }
 
@@ -392,10 +391,12 @@ function Dashboard (props){
             reqStatesCollegeFunc(statesArray[i]);
         }
 
-        for(let i=0; i<coursesArray.length; i++)
-        {
-            reqCoursesCollegeFunc(coursesArray[i]);
-        }
+        axios.get(`${baseUrl}/colleges/all-courses`)
+        .then((res) => {
+            console.log(res.data.length)
+            setCoursesChartData(res.data)
+            })
+        .catch((err) => console.log(err));
 
         
         console.log(donutChartData)
@@ -534,14 +535,14 @@ function Dashboard (props){
                     <Paper className={classes.userOptions}>
                         <Grid container style={{paddingTop: '40px'}}>
                             <Grid item xs={6} sm={4} lg={6} >
-                                <div style={{cursor: 'pointer'}} onclick={() => this.props.history.push('/home')}>
-                                <div><SchoolIcon style={{color: themeColor, fontSize: '50px'}}/></div>
+                                <div style={{cursor: 'pointer'}} onClick={() => props.history.push('/home')}>
+                                <div ><SchoolIcon style={{color: themeColor, fontSize: '50px'}}/></div>
                                 <div>All Colleges</div>
                                 <div style={{fontSize: '25px', fontWeight: '600'}}>100</div>
                                 </div>
                             </Grid>
                             <Grid item xs={6} sm={4} lg={6}>
-                                <div><LocalLibraryIcon style={{color: themeColor, fontSize: '50px'}}/></div>
+                                <div style={{cursor: 'pointer'}} onClick={() => props.history.push('/colleges/all-courses')}><LocalLibraryIcon style={{color: themeColor, fontSize: '50px'}}/></div>
                                 <div>Courses offered</div>
                                 <div style={{fontSize: '25px', fontWeight: '600'}}>10</div>
                             </Grid>
