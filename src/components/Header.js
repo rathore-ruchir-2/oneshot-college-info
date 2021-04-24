@@ -19,7 +19,7 @@ import InboxIcon from '@material-ui/icons/MoveToInbox';
 import MailIcon from '@material-ui/icons/Mail';
 import MenuBookIcon from '@material-ui/icons/MenuBook';
 import HomeIcon from '@material-ui/icons/Home';
-
+import logo from './logo.png'
 
 const drawerWidth = 240;
 
@@ -116,8 +116,10 @@ export default function PersistentDrawerLeft(props) {
             >
               <MenuIcon />
             </IconButton>
+            
             <Typography variant="h6" noWrap style={{color: "#ffffff", cursor: 'pointer'}} onClick={console.log(props)} >
-              <span style={{fontSize: '30px', margin: '0px', padding: '0px'}}>C</span>ollege 
+            <img src={logo} style={{width: '30px', height: '30px'}}></img>
+              <span style={{fontSize: '30px', margin: '0px', padding: '0px'}}> C</span>ollege 
               <span style={{fontSize: '30px', margin: '0px', padding: '0px'}}> C</span>amp
             </Typography>
           </Toolbar>
@@ -140,16 +142,16 @@ export default function PersistentDrawerLeft(props) {
           <List>
             
             <ListItem button>
-                <a href='/home' style={{textDecoration: 'none', color: 'black'}}>
+                <a href='/dashboard' style={{textDecoration: 'none', color: 'black'}}>
                     <ListItemIcon><MenuBookIcon style={{color: themeColor}}/></ListItemIcon>
-                    <ListItemText primary={'All Colleges'} />
+                    <ListItemText primary={'Dashboard'} />
                 </a>    
             </ListItem>
 
             <ListItem button>
                 <a href="/home" style={{textDecoration: 'none', color: 'black'}}>
                     <ListItemIcon><HomeIcon style={{color: themeColor}}/></ListItemIcon>
-                    <ListItemText primary={'Home'} />
+                    <ListItemText primary={'All Colleges'} />
                 </a>    
             </ListItem>
 
