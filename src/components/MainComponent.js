@@ -11,6 +11,7 @@ import CollegeListOfState from './CollegeListOfState'
 import SimilarCollege from './SimilarColleges'
 import AllStates from './AllStates'
 import AllCourses from './Courses'
+import CollegeListOfCourses from './CollegeListOfCourse'
 
 class Main extends Component{
     constructor(props)
@@ -30,6 +31,7 @@ class Main extends Component{
                         <Route exact path='/new' component={(props) => <New />} />
                         <Route exact path='/dashboard' component={(props) => <Dashboard {...props}/>} />
                         <Route exact path='/colleges/state/:state' component={(props) => <CollegeListOfState {...props}/> } />
+                        <Route exact path='/colleges/courses/:courseName' component={(props) => <CollegeListOfCourses {...props}/> } />
                         <Route exact path='/colleges/name/:collegeName' component={(props) => <CollegeDetail {...props}/> } />
                         <Route exact path='/colleges/:collegeId/similarColleges' component={(props) => <SimilarCollege {...props}/> } />
                         <Route exact path='/colleges/all-states' component={(props) => <AllStates {...props}/> } />
