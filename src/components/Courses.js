@@ -75,9 +75,7 @@ function AllCourses (props){
     
     if(event.type=="interval:click"){
       console.log(event.data.data.type)
-      axios.get(baseUrl+'/colleges/courses/'+`${event.data.data.type}`)
-      .then((res) => console.log(res))
-      .catch((err) => console.log(err))
+      props.history.push(`/colleges/courses/${event.data.data.type}`)
     }
   }
 
