@@ -144,12 +144,13 @@ const useStyles = makeStyles((theme) => ({
     minWidth: 120,
   },
   userOptions: {
-      marginTop: '20px',
-      minHeight: '400px',
+      
+      minHeight: '370px',
       width: '100%'
   },
 
   statesChart: {
+    marginTop: '20px',
     minHeight: '400px',
     width: '100%'
 },
@@ -532,6 +533,10 @@ function Dashboard (props){
                     </Paper>
                 </Grid>
                 <Grid item xs={12} sm={12} lg={3} >
+                <Paper className={classes.statesChart}>
+                    <div><Button><DateRangeIcon style={{color: themeColor}}/>No. of Colleges in States(%)</Button></div>
+                         <Pie {...config}  onEvent={(chart, event) => myFunc(chart, event)}/>
+                    </Paper>
                     <Paper className={classes.userOptions}>
                         <Grid container style={{paddingTop: '40px'}}>
                             <Grid item xs={6} sm={4} lg={6} >
@@ -570,10 +575,7 @@ function Dashboard (props){
                             </Grid> */}
                         </Grid>
                     </Paper>
-                    <Paper className={classes.statesChart}>
-                    <div><Button><DateRangeIcon style={{color: themeColor}}/>No. of Colleges in States(%)</Button></div>
-                         <Pie {...config}  onEvent={(chart, event) => myFunc(chart, event)}/>
-                    </Paper>
+                   
                     
                 </Grid>
 
