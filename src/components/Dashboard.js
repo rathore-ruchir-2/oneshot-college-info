@@ -392,10 +392,10 @@ function Dashboard (props){
             reqStatesCollegeFunc(statesArray[i]);
         }
 
-        // for(let i=0; i<coursesArray.length; i++)
-        // {
-        //     reqCoursesCollegeFunc(coursesArray[i]);
-        // }
+        for(let i=0; i<coursesArray.length; i++)
+        {
+            reqCoursesCollegeFunc(coursesArray[i]);
+        }
 
         
         console.log(donutChartData)
@@ -438,7 +438,7 @@ function Dashboard (props){
                 <nav className={classes.navBar}>
                     <ul className={classes.ulist}>
                         <li className={classes.list} style={{fontSize: '18px', fontWeight: 'bolder'}}>Dashboard</li>
-                        <li className={classes.list}><Button><AddCircleOutlineIcon /><span>Colleges List</span></Button></li>
+                        <li className={classes.list} onClick={() => props.history.push('/home')}><Button><AddCircleOutlineIcon /><span>Colleges List</span></Button></li>
                         <li className={classes.list}><Button><VisibilityIcon /><span>Students list</span></Button></li>
                         
 
@@ -571,17 +571,18 @@ function Dashboard (props){
                     </Paper>
                     <Paper className={classes.statesChart}>
                     <div><Button><DateRangeIcon style={{color: themeColor}}/>No. of Colleges in States(%)</Button></div>
-                    <Pie {...config}  onEvent={(chart, event) => myFunc(chart, event)}/>
+                         <Pie {...config}  onEvent={(chart, event) => myFunc(chart, event)}/>
                     </Paper>
-                    {/* <Paper className={classes.statesChart}>
-                    <div><Button><DateRangeIcon style={{color: themeColor}}/>Courses offered(%)</Button></div>
-                    <Pie {...config2}  onEvent={(chart, event) => myFunc2(chart, event)}/>
-                    </Paper> */}
+                    
                 </Grid>
 
             </Grid>
             <Grid container spacing={2}>
                 <Grid item xs={12} sm={6} lg={3}>
+                    {/* <Paper className={classes.statesChart}>
+                    <div><Button><DateRangeIcon style={{color: themeColor}}/>Courses offered(%)</Button></div>
+                    <Pie {...config2}  onEvent={(chart, event) => myFunc2(chart, event)}/>
+                    </Paper> */}
                     {/* <Paper className={classes.newUsers}>
                         <div style={{justifyContent: 'start', marginTop: '10px',marginLeft: '10px', display: 'flex'}}>
                             <PersonOutlineIcon style={{color: themeColor}} />

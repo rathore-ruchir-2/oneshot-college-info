@@ -9,6 +9,8 @@ import New from './newComponent';
 import Dashboard from './Dashboard'
 import CollegeListOfState from './CollegeListOfState'
 import SimilarCollege from './SimilarColleges'
+import AllStates from './AllStates'
+import AllCourses from './Courses'
 
 class Main extends Component{
     constructor(props)
@@ -30,6 +32,8 @@ class Main extends Component{
                         <Route exact path='/colleges/state/:state' component={(props) => <CollegeListOfState {...props}/> } />
                         <Route exact path='/colleges/name/:collegeName' component={(props) => <CollegeDetail {...props}/> } />
                         <Route exact path='/colleges/:collegeId/similarColleges' component={(props) => <SimilarCollege {...props}/> } />
+                        <Route exact path='/colleges/all-states' component={(props) => <AllStates {...props}/> } />
+                        <Route exact path='/colleges/all-courses' component={(props) => <AllCourses {...props}/> } />
                         <Redirect to='/dashboard' />
                     </Switch>
             </Router>

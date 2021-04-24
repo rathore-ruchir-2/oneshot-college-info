@@ -151,9 +151,15 @@ export default function PersistentDrawerLeft() {
             </ListItem>
 
             <ListItem button>
-                <a href="/dashboard" style={{textDecoration: 'none', color: 'black'}}>
+                <a href="/colleges/all-states" style={{textDecoration: 'none', color: 'black'}}>
                     <ListItemIcon><MenuBookIcon /></ListItemIcon>
                     <ListItemText primary={'Colleges Statewise'} />
+                </a>    
+            </ListItem>
+            <ListItem button>
+                <a href="/colleges/all-courses" style={{textDecoration: 'none', color: 'black'}}>
+                    <ListItemIcon><MenuBookIcon /></ListItemIcon>
+                    <ListItemText primary={'Colleges Sort by Course'} />
                 </a>    
             </ListItem>
           </List>
