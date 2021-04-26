@@ -10,6 +10,8 @@ import 'antd/dist/antd.css'
 import Button from '@material-ui/core/Button'
 import DateRangeIcon from '@material-ui/icons/DateRange';
 import { Line } from '@ant-design/charts';
+import CircularProgress from '@material-ui/core/CircularProgress';
+
 
 const { Column, ColumnGroup } = Table;
 
@@ -38,7 +40,8 @@ const useStyles = makeStyles((theme) => ({
 
 function AllCourses (props){
     const [coursesChartData, setCoursesChartData] = useState([])
- 
+    const classes = useStyles();
+
 
     var config = {
       appendPadding: 10,
@@ -91,7 +94,7 @@ function AllCourses (props){
 },[])
 
 
-
+  if(coursesChartData.length!=0){
   return (
 
     <div style={{backgroundColor: '#F5F5F5'}} >
@@ -104,6 +107,16 @@ function AllCourses (props){
 
     </div>
   );
+  }
+
+  else{
+    return (
+      <div className={classes.loaderRoot} style={{marginTop: '300px'}}>
+      <CircularProgress style={{color: themeColor}}/>
+    
+    </div>
+    );
+  }
 
 
 

@@ -37,6 +37,8 @@ import Typography from '@material-ui/core/Typography';
 import HourglassEmptyIcon from '@material-ui/icons/HourglassEmpty';
 import SchoolIcon from '@material-ui/icons/School';
 import LocalLibraryIcon from '@material-ui/icons/LocalLibrary';
+import { Loader, PlaceholderParagraphProps} from 'rsuite';
+import CircularProgress from '@material-ui/core/CircularProgress';
 import './dashboard.css'
 // import {
 //     ArgumentAxis,
@@ -75,6 +77,17 @@ const useStyles = makeStyles((theme) => ({
       height: theme.spacing(16),
     },
   },
+
+  loaderRoot: {
+    display: 'flex',
+    justifyContent: 'center',
+    alignItems: 'center',
+
+    '& > * + *': {
+      marginLeft: theme.spacing(2),
+    },
+  },
+
   table: {
     minWidth: 650,
   },
@@ -439,7 +452,7 @@ function Dashboard (props){
       return { key: item.name, value: item.name}
   })
  
-    
+    if(data!=null){
     return (
         <div style={{backgroundColor: '#F5F5F5'}} >
             <Paper className={classes.topBar}  elevation={2}>
@@ -714,6 +727,18 @@ function Dashboard (props){
             </Dialog>
         </div>
     );
+   }
+
+   else{
+       return (
+       
+      <div className={classes.loaderRoot} style={{marginTop: '300px'}}>
+        <CircularProgress style={{color: themeColor}}/>
+      
+      </div>
+   
+       );
+   }
 }
 
 export default Dashboard

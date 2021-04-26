@@ -10,6 +10,10 @@ import TableContainer from '@material-ui/core/TableContainer';
 import TableHead from '@material-ui/core/TableHead';
 import TableRow from '@material-ui/core/TableRow';
 import Paper from '@material-ui/core/Paper';
+import CircularProgress from '@material-ui/core/CircularProgress';
+
+
+const themeColor = '#03CBBB'
 
 
 const useStyles = makeStyles({
@@ -42,7 +46,8 @@ const useStyles = makeStyles({
       const rows = data;
       console.log(rows)
       const classes = useStyles();
-  
+      
+      if(data!=null){
       return (
           <div style={{width: '100%'}}>
                   <h1>Student List</h1>
@@ -73,6 +78,17 @@ const useStyles = makeStyles({
             </TableContainer>
           </div>
       );
+    }
+
+    else
+    {
+        return(
+            <div className={classes.loaderRoot} style={{marginTop: '300px'}}>
+            <CircularProgress style={{color: themeColor}}/>
+            
+            </div>
+        );
+    }
   }
   
   export default Student;

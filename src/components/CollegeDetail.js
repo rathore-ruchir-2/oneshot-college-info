@@ -15,7 +15,9 @@ import CardActionArea from '@material-ui/core/CardActionArea';
 import CardActions from '@material-ui/core/CardActions';
 import CardContent from '@material-ui/core/CardContent';
 import CardMedia from '@material-ui/core/CardMedia';
-import graduate from './graduate.jpeg'
+import graduate from './graduate.jpeg';
+import CircularProgress from '@material-ui/core/CircularProgress';
+
 
 const themeColor = '#03CBBB'
 const { Column, ColumnGroup } = Table;
@@ -121,7 +123,7 @@ export default function CollegeDetail(props) {
       .catch((err) => console.log('not found'))
   }, [])
 
-  
+  if(college!=null){
   return (
     <div className={classes.root}>
         <div style={{width: '100%'}}>
@@ -162,4 +164,15 @@ export default function CollegeDetail(props) {
         
     </div>
   );
+  }
+
+  else
+  {
+    return (
+      <div className={classes.loaderRoot} style={{marginTop: '300px'}}>
+      <CircularProgress style={{color: themeColor}}/>
+    
+    </div>
+    );
+  }
 }

@@ -10,6 +10,7 @@ import Chip from '@material-ui/core/Chip';
 import Grid from '@material-ui/core/Grid';
 import { Table, Tag, Space } from 'antd';
 import 'antd/dist/antd.css'
+import CircularProgress from '@material-ui/core/CircularProgress';
 
 
 const themeColor = '#03CBBB'
@@ -77,7 +78,7 @@ export default function SimilarCollege(props) {
         .catch((err) => console.log('not found'))
     }, [])
   
-    
+    if(similarColleges!=null){
     return (
       <div className={classes.root}>
           <div style={{width: '100%'}}>
@@ -146,5 +147,16 @@ export default function SimilarCollege(props) {
           
       </div>
     );
+    }
+
+    else
+    {
+      return (
+        <div className={classes.loaderRoot} style={{marginTop: '300px'}}>
+        <CircularProgress style={{color: themeColor}}/>
+      
+      </div>
+      );
+    }
   }
   

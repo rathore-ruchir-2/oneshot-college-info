@@ -7,6 +7,7 @@ import Paper from '@material-ui/core/Paper';
 import Grid from '@material-ui/core/Grid';
 import { Table, Tag, Space } from 'antd';
 import 'antd/dist/antd.css'
+import CircularProgress from '@material-ui/core/CircularProgress';
 
 const { Column, ColumnGroup } = Table;
 
@@ -20,6 +21,8 @@ const useStyles = makeStyles({
         minHeight: '400px'
     },
   });
+
+  const themeColor = '#03CBBB'
 
 
   function CollegeListOfState(props){
@@ -52,6 +55,7 @@ const useStyles = makeStyles({
     console.log(rows)
     const classes = useStyles();
 
+    if(data!=null){
     return (
         <div>
             <Grid container>
@@ -105,6 +109,16 @@ const useStyles = makeStyles({
             </Grid>
         </div>
     );
+    }
+
+    else{
+        return(
+            <div className={classes.loaderRoot} style={{marginTop: '300px'}}>
+            <CircularProgress style={{color: themeColor}}/>
+          
+          </div>
+        );
+    }
   }
 
 export default CollegeListOfState;

@@ -9,6 +9,7 @@ import { Pie } from '@ant-design/charts';
 import 'antd/dist/antd.css'
 import Button from '@material-ui/core/Button'
 import DateRangeIcon from '@material-ui/icons/DateRange';
+import CircularProgress from '@material-ui/core/CircularProgress';
 
 
 
@@ -40,6 +41,7 @@ function AllStates (props){
 
     const [donutChartData, setDonutChartData] = useState([])
     var list=[]
+    const classes = useStyles();
 
     
     useEffect(() => {
@@ -97,7 +99,7 @@ function AllStates (props){
         }
         
       }
-
+      if(donutChartData.length!=0){
       return (
         <div style={{backgroundColor: '#F5F5F5'}} >
             <Grid container style={{marginLeft: '100px', marginTop:'200px'}}>
@@ -109,6 +111,16 @@ function AllStates (props){
 
         </div>
       );
+      }
+
+      else{
+        return (
+          <div className={classes.loaderRoot} style={{marginTop: '300px'}}>
+          <CircularProgress style={{color: themeColor}}/>
+        
+        </div>
+        );
+      }
 
 }
 
